@@ -97,7 +97,9 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-type', 'text/plain; charset=utf-8')
             self.end_headers()
-            self.wfile.write("That is not a valid URL!")
+            self.wfile.write(
+                "Couldn't fetch URI '{}'. Sorry!".format(longuri).encode())
+
             
 
 if __name__ == '__main__':
